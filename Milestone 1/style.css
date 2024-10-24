@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(to right, #4a90e2, #50e3c2);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.resume-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+}
+
+.left-section {
+    background-color: #35424a;
+    color: white;
+    padding: 20px;
+    width: 35%;
+    text-align: center;
+    border-right: 2px solid #ecf0f1;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    max-width: 100px; /* Responsive size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.75rem;
+    color: #2c3e50; /* Darker color for better visibility */
+    margin: 20px 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Subtle shadow for contrast */
+}
+
+#objective h3,
+#certification h3 {
+    color: #2980b9; /* Bright blue for better visibility */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); /* Subtle shadow for contrast */
+}
+
+.right-section {
+    padding: 20px;
+    width: 65%;
+}
+
+button {
+    background-color: #50e3c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4a90e2;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #4a90e2, #50e3c2);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .left-section, .right-section {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #ecf0f1;
+    }
+
+    .resume-container {
+        flex-direction: column; /* Stack sections on small screens */
+    }
+}
+
+
