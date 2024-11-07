@@ -1,84 +1,106 @@
-/* Styling form and resume sections */
-body {
-    font-family: 'Times New Roman', Times, serif;
-    margin: 20px;
-    padding: 0;
-    background-color: #f0f4f8;
-}
-
-form {
-    margin: auto;
-    background-color: #ffffff; 
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-    padding: 20px;
-    max-width: 600px;
-}
-
-h1 {
-    text-align: center;
-    color: #1e88e5; 
-}
-
-fieldset {
-    border: 2px solid #004d40; 
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background: #e0f2f1; 
-}
-
-legend {
-    font-weight: bold;
-    text-align: left;
-    color: #d32f2f; 
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    color: #004d40; 
-}
-
-input, textarea {
-    margin-top: 4px;
-    padding: 8px;
-    width: calc(100% - 2px);
-    border: 1px solid #004d40; 
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-button {
-    display: block;
-    width: 100%;
-    background-color: #0288d1; 
-    color: white;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-    margin-top: 10px;
-    font-size: 18px;
-    font-family: 'Times New Roman', Times, serif;
-    padding: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0277bd; 
-}
-
-#resume-display {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #004d40; 
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-    outline: none;  /* Making the resume editable */
-}
-
-#resume-display h2 {
-    color: #1e88e5;
-}
+    /* Global Styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7fa;
+        color: #333;
+    }
+    header {
+        background-color: #0056b3;
+        color: white;
+        text-align: center;
+        padding: 40px;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+    }
+    header p {
+        font-size: 1.2rem;
+    }
+    main {
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    form {
+        display: grid;
+        gap: 20px;
+    }
+    form label {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+    form input, form textarea {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+    form textarea {
+        resize: vertical;
+        height: 100px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+    button:hover {
+        background-color: #004495;
+    }
+    .resume-preview {
+        margin-top: 40px;
+    }
+    .resume-preview h2, .resume-preview h3 {
+        font-size: 2rem;
+        color: #0056b3;
+        margin-top: 20px;
+    }
+    .resume-preview p, .resume-preview ul {
+        font-size: 1.1rem;
+    }
+    .resume-preview ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .resume-preview li {
+        padding-left: 1rem;
+        position: relative;
+    }
+    .resume-preview li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #0056b3;
+    }
+    .download-button-container {
+        text-align: center;
+        margin-top: 40px;
+    }
+    .download-button-container button {
+        background-color: #28a745;
+        font-size: 1.3rem;
+    }
+    .download-button-container button:hover {
+        background-color: #218838;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #0056b3;
+        color: white;
+    }
+    footer p {
+        margin: 0;
+        font-size: 1.2rem;
+    }
