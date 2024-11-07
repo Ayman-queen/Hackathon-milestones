@@ -1,24 +1,64 @@
-// Select the toggle button and the skills sections
-const toggleSkillsButton = document.getElementById('toggle-skills') as HTMLButtonElement;
-const hardSkills = document.querySelector('.hard-skills') as HTMLDivElement;
-const softSkills = document.querySelector('.soft-skills') as HTMLDivElement;
+// Interface for Skill
+interface Skill {
+    name: string;
+    level: number;  // Skill level from 0 to 100
+    icon: string;   // Font Awesome icon class
+    type: 'hard' | 'soft'; // Type of skill (hard or soft)
+}
 
-// Function to toggle visibility of the skills section
-const toggleSkillsVisibility = () => {
-    if (softSkills.style.display === 'none' || softSkills.style.display === '') {
-        softSkills.style.display = 'block';
-        hardSkills.style.display = 'none';
-        toggleSkillsButton.textContent = 'Show Hard Skills';
-    } else {
-        softSkills.style.display = 'none';
-        hardSkills.style.display = 'block';
-        toggleSkillsButton.textContent = 'Show Soft Skills';
+// Example skills data
+const skills: Skill[] = [
+    { name: "HTML", level: 90, icon: "fab fa-html5", type: 'hard' },
+    { name: "CSS", level: 85, icon: "fab fa-css3-alt", type: 'hard' },
+    { name: "JavaScript", level: 80, icon: "fab fa-js-square", type: 'hard' },
+    { name: "TypeScript", level: 75, icon: "fab fa-typescript", type: 'hard' },
+    { name: "Communication", level: 90, icon: "fas fa-comments", type: 'soft' },
+    { name: "Problem Solving", level: 85, icon: "fas fa-lightbulb", type: 'soft' },
+    { name: "Teamwork", level: 95, icon: "fas fa-users", type: 'soft' }
+];
+
+// Function to dynamically render skills
+const renderSkills = () => {
+    const skillsList = document.getElementById("skills-list");
+
+    if (skillsList) {
+        // Clear existing skills before rendering
+        skillsList.innerHTML = '';
+
+        skills.forEach(skill => {
+            // Create skill container
+            const skillContainer = document.createElement("div");
+            skillContainer.classList.add("skill");
+
+            // Create skill name and icon
+            const skillName = document.createElement("div");
+            skillName.classList.add("skill-name");
+            const icon = document.createElement("i");
+            icon.classList.add(skill.icon);
+            skillName.appendChild(icon);
+            skillName.appendChild(document.createTextNode(skill.name));
+
+            // Create progress bar container
+            const progressBar = document.createElement("div");
+            progressBar.classList.add("progress-bar");
+
+            // Create progress bar div
+            const progress = document.createElement("div");
+            progress.classList.add("progress");
+            progress.style.width = `${skill.level}%`; // Set the width based on skill level
+
+            // Append progress bar to the skill container
+            progressBar.appendChild(progress);
+
+            // Append skill name, icon, and progress bar to the skill container
+            skillContainer.appendChild(skillName);
+            skillContainer.appendChild(progressBar);
+
+            // Append the skill container to the skills list in the HTML
+            skillsList.appendChild(skillContainer);
+        });
     }
 };
 
-// Attach click event listener to the toggle button
-toggleSkillsButton.addEventListener('click', toggleSkillsVisibility);
-
-// Initialize skills section to show hard skills by default
-softSkills.style.display = 'none';
-
+// Call the function to render skills on page load
+window.addEventListener('load', renderSkills);
