@@ -38,17 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (profilePic) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                profilePicHtml = `
-                    <div style="text-align: center;">
-                        <img src="${e.target.result}" alt="Profile Picture" style="max-width: 150px; border-radius: 50%; margin-bottom: 20px;">
-                    </div>
-                `;
+                profilePicHtml = `<div style="text-align: center;"><img src="${e.target.result}" alt="Profile Picture" style="max-width: 150px; border-radius: 50%;"></div>`;
                 resumeDisplay.innerHTML = `
                     ${profilePicHtml}
-                    <h2 style="text-align: center;">${firstName} ${middleName} ${lastName}</h2>
-                    <h3 style="text-align: center;">${designation}</h3>
-                    <p><strong>Contact:</strong> ${phone}, ${email}</p>
-                    <p><strong>Address:</strong> ${address}</p>
+                    <div style="text-align: center;">
+                        <h2>${firstName} ${middleName} ${lastName}</h2>
+                        <h3>${designation}</h3>
+                        <p><strong>Contact:</strong> ${phone}, ${email}</p>
+                        <p><strong>Address:</strong> ${address}</p>
+                    </div>
                     <h3>Summary</h3>
                     <p>${summary}</p>
                     <h3>Achievements</h3>
@@ -66,10 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
             reader.readAsDataURL(profilePic);
         } else {
             resumeDisplay.innerHTML = `
-                <h2 style="text-align: center;">${firstName} ${middleName} ${lastName}</h2>
-                <h3 style="text-align: center;">${designation}</h3>
-                <p><strong>Contact:</strong> ${phone}, ${email}</p>
-                <p><strong>Address:</strong> ${address}</p>
+                <div style="text-align: center;">
+                    <h2>${firstName} ${middleName} ${lastName}</h2>
+                    <h3>${designation}</h3>
+                    <p><strong>Contact:</strong> ${phone}, ${email}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                </div>
                 <h3>Summary</h3>
                 <p>${summary}</p>
                 <h3>Achievements</h3>
