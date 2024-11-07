@@ -3,66 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shareable Resume Builder</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Professional Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link your custom CSS here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 <body>
-    <h1>Shareable Resume Builder</h1>
-    <form id="resume-form">
-        <fieldset>
-            <legend>Editable Information</legend>
-            <label for="username">Username:</label>
-            <input type="text" id="username" placeholder="Enter your username" required>
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+    <header>
+        <h1>Resume Builder</h1>
+        <p>Create and download your professional resume easily!</p>
+    </header>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+    <main>
+        <form id="resume-form">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="profile-pic">Profile Picture:</label>
+                <input type="file" id="profile-pic" accept="image/*">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" required>
+                <label for="middle-name">Middle Name (Optional):</label>
+                <input type="text" id="middle-name">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" required>
+                <label for="designation">Job Title:</label>
+                <input type="text" id="designation" required>
+                <label for="address">Address:</label>
+                <input type="text" id="address">
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone">
+                <label for="summary">Summary:</label>
+                <textarea id="summary"></textarea>
+            </fieldset>
 
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number" required>
-        </fieldset>
+            <fieldset>
+                <legend>Achievements</legend>
+                <label for="achievement-title">Achievement Title:</label>
+                <input type="text" id="achievement-title">
+                <label for="achievement-description">Achievement Description:</label>
+                <textarea id="achievement-description"></textarea>
+            </fieldset>
 
-        <fieldset>
-            <legend>Education</legend>
-            <label for="education">Education:</label>
-            <textarea id="education" placeholder="Enter your education" rows="4" required></textarea>
-        </fieldset>
+            <fieldset>
+                <legend>Experience</legend>
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title">
+                <label for="company">Company:</label>
+                <input type="text" id="company">
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                <label for="job-description">Job Description:</label>
+                <textarea id="job-description"></textarea>
+            </fieldset>
 
-        <fieldset>
-            <legend>Experience</legend>
-            <label for="experience">Experience:</label>
-            <textarea id="experience" placeholder="Enter your experience" rows="4" required></textarea>
-        </fieldset>
+            <fieldset>
+                <legend>Education</legend>
+                <label for="school">School:</label>
+                <input type="text" id="school">
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree">
+                <label for="edu-location">Location:</label>
+                <input type="text" id="edu-location">
+                <label for="edu-start-date">Start Date:</label>
+                <input type="date" id="edu-start-date">
+                <label for="edu-end-date">End Date:</label>
+                <input type="date" id="edu-end-date">
+                <label for="edu-description">Education Description:</label>
+                <textarea id="edu-description"></textarea>
+            </fieldset>
 
-        <fieldset>
-            <legend>Skills</legend>
-            <label for="skills">Skills:</label>
-            <textarea id="skills" placeholder="Enter your skills" rows="4" required></textarea>
-        </fieldset>
+            <fieldset>
+                <legend>Skills</legend>
+                <label for="skills">Skills (comma-separated):</label>
+                <textarea id="skills"></textarea>
+            </fieldset>
 
-        <button type="submit"><b>Generate Resume</b></button>
-    </form>
+            <button type="submit">Generate Resume</button>
+        </form>
 
-    <br>
+        <div class="resume-preview" id="resume-display"></div>
 
-    <!-- Dynamic and Editable Resume -->
+        <div class="download-button-container" id="download-pdf-container" style="display:none;">
+            <button id="download-pdf">Download Resume as PDF</button>
+        </div>
 
-     <div id="resume-display" contenteditable="true">
-        <!-- Resume will be generated below -->
-     </div>
+    </main>
 
-     <br>
-
-     <!-- Section for the Shareable Link and Dowload link-->
-      <div id="shareable-link-container" style="display : none">
-        <h2>Shareable Link</h2>
-        <p>Here is your unique link to view or edit your resume:</p>
-        <a href="#" id="shareable-link" target="_blank"></a>
-        <br>
-
-        <button id="download-pdf"><b>Download as PDF</b></button>
+    <footer>
+        <p>Created by Ayman Shaheen | Proudly Crafted with Care</p>
+    </footer>
+<script src="script.js"></script>
+      
+</body>
+</html>
       </div>
 
     <script src="script.js"></script> 
