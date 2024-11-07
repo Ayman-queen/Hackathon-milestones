@@ -38,11 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (profilePic) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                profilePicHtml = `<img src="${e.target.result}" alt="Profile Picture" style="max-width: 100px; border-radius: 50%;">`;
+                profilePicHtml = `
+                    <div style="text-align: center;">
+                        <img src="${e.target.result}" alt="Profile Picture" style="max-width: 150px; border-radius: 50%; margin-bottom: 20px;">
+                    </div>
+                `;
                 resumeDisplay.innerHTML = `
                     ${profilePicHtml}
-                    <h2>${firstName} ${middleName} ${lastName}</h2>
-                    <h3>${designation}</h3>
+                    <h2 style="text-align: center;">${firstName} ${middleName} ${lastName}</h2>
+                    <h3 style="text-align: center;">${designation}</h3>
                     <p><strong>Contact:</strong> ${phone}, ${email}</p>
                     <p><strong>Address:</strong> ${address}</p>
                     <h3>Summary</h3>
@@ -62,8 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
             reader.readAsDataURL(profilePic);
         } else {
             resumeDisplay.innerHTML = `
-                <h2>${firstName} ${middleName} ${lastName}</h2>
-                <h3>${designation}</h3>
+                <h2 style="text-align: center;">${firstName} ${middleName} ${lastName}</h2>
+                <h3 style="text-align: center;">${designation}</h3>
                 <p><strong>Contact:</strong> ${phone}, ${email}</p>
                 <p><strong>Address:</strong> ${address}</p>
                 <h3>Summary</h3>
