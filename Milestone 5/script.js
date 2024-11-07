@@ -1,61 +1,130 @@
-// Get references to the form and display area
-var form = document.getElementById('resume-form');
-var resumeDisplayElement = document.getElementById('resume-display');
-var shareableLinkContainer = document.getElementById('shareable-link-container');
-var shareableLinkElement = document.getElementById('shareable-link');
-var downloadPdfButton = document.getElementById('download-pdf');
-// Handle form submission
-form.addEventListener('submit', function (event) {
-    event.preventDefault(); // prevent page reload
-    // Collect input values
-    var username = document.getElementById('username').value;
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var education = document.getElementById('education').value;
-    var experience = document.getElementById('experience').value;
-    var skills = document.getElementById('skills').value;
-    // Save form data in localStorage with the username as the key
-    var resumeData = {
-        name: name,
-        email: email,
-        phone: phone,
-        education: education,
-        experience: experience,
-        skills: skills
-    };
-    localStorage.setItem(username, JSON.stringify(resumeData)); // Saving the data locally
-    // Generate the resume content dynamically
-    var resumeHTML = "\n<h2>Editable Resume</h2>\n<h3>Personal Information</h3>\n<p><b>Name:</b> <span contenteditable=\"true\">".concat(name, "</span></p>\n<p><b>Email:</b> <span contenteditable=\"true\">").concat(email, "</span></p>\n<p><b>Phone:</b> <span contenteditable=\"true\">").concat(phone, "</span></p>\n<h3>Education</h3>\n<p contenteditable=\"true\">").concat(education, "</p>\n<h3>Experience</h3>\n<p contenteditable=\"true\">").concat(experience, "</p>\n<h3>Skills</h3>\n<p contenteditable=\"true\">").concat(skills, "</p>\n");
-    // Display the generated resume
-    resumeDisplayElement.innerHTML = resumeHTML;
-    // Generate a shareable URL with the username only
-    var shareableURL = "".concat(window.location.origin, "?username=").concat(encodeURIComponent(username));
-    // Display the shareable link
-    shareableLinkContainer.style.display = 'block';
-    shareableLinkElement.href = shareableURL;
-    shareableLinkElement.textContent = shareableURL;
-});
-// Handle PDF download
-downloadPdfButton.addEventListener('click', function () {
-    window.print(); // This will open the print dialog and allow the user to save as PDF
-});
-// Prefill the form based on the username in the URL
-window.addEventListener('DOMContentLoaded', function () {
-    var urlParams = new URLSearchParams(window.location.search);
-    var username = urlParams.get('username');
-    if (username) {
-        // Autofill form if data is found in localStorage
-        var savedResumeData = localStorage.getItem(username);
-        if (savedResumeData) {
-            var resumeData = JSON.parse(savedResumeData);
-            document.getElementById('username').value = username;
-            document.getElementById('name').value = resumeData.name;
-            document.getElementById('email').value = resumeData.email;
-            document.getElementById('phone').value = resumeData.phone;
-            document.getElementById('education').value = resumeData.education;
-            document.getElementById('experience').value = resumeData.experience;
-            document.getElementById('skills').value = resumeData.skills;
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("resume-form");
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Collect form values
+        const firstName = document.getElementById("first-name").value;
+        const middleName = document.getElementById("middle-name").value;
+        const lastName = document.getElementById("last-name").value;
+        const designation = document.getElementById("designation").value;
+        const address = document.getElementById("address").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const summary = document.getElementById("summary").value;
+        const achievementTitle = document.getElementById("achievement-title").value;
+        const achievementDescription = document.getElementById("achievement-description").value;
+        const jobTitle = document.getElementById("job-title").value;
+        const company = document.getElementById("company").value;
+        const location = document.getElementById("location").value;
+        const startDate = document.getElementById("start-date").value;
+        const endDate = document.getElementById("end-date").value;
+        const jobDescription = document.getElementById("job-description").value;
+        const school = document.getElementById("school").value;
+        const degree = document.getElementById("degree").value;
+        const eduLocation = document.getElementById("edu-location").value;
+        const eduStartDate = document.getElementById("edu-start-date").value;
+        const eduEndDate = document.getElementById("edu-end-date").value;
+        const eduDescription = document.getElementById("edu-description").value;
+        const skills = document.getElementById("skills").value.split(',');
+
+        // Get the profile picture
+        const profilePic = document.getElementById("profile-pic").files[0];
+
+        // Display Resume Preview
+        const resumeDisplay = document.getElementById("resume-display");
+
+        let profilePicHtml = '';
+        if (profilePic) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profilePicHtml = `<img src="${e.target.result}" alt="Profile Picture" style="max-width: 100px; border-radius: 50%;">`;
+                resumeDisplay.innerHTML = `
+                    ${profilePicHtml}
+                    <h2>${firstName} ${middleName} ${lastName}</h2>
+                    <h3>${designation}</h3>
+                    <p><strong>Contact:</strong> ${phone}, ${email}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    <h3>Summary</h3>
+                    <p>${summary}</p>
+                    <h3>Achievements</h3>
+                    <ul><li>${achievementTitle}: ${achievementDescription}</li></ul>
+                    <h3>Experience</h3>
+                    <p>${jobTitle} at ${company} (${startDate} to ${endDate}) - ${jobDescription}</p>
+                    <h3>Education</h3>
+                    <p>${school} - ${degree} (${eduStartDate} to ${eduEndDate})</p>
+                    <h3>Skills</h3>
+                    <ul>
+                        ${skills.map(skill => `<li>${skill.trim()}</li>`).join('')}
+                    </ul>
+                `;
+            };
+            reader.readAsDataURL(profilePic);
+        } else {
+            resumeDisplay.innerHTML = `
+                <h2>${firstName} ${middleName} ${lastName}</h2>
+                <h3>${designation}</h3>
+                <p><strong>Contact:</strong> ${phone}, ${email}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <h3>Summary</h3>
+                <p>${summary}</p>
+                <h3>Achievements</h3>
+                <ul><li>${achievementTitle}: ${achievementDescription}</li></ul>
+                <h3>Experience</h3>
+                <p>${jobTitle} at ${company} (${startDate} to ${endDate}) - ${jobDescription}</p>
+                <h3>Education</h3>
+                <p>${school} - ${degree} (${eduStartDate} to ${eduEndDate})</p>
+                <h3>Skills</h3>
+                <ul>
+                    ${skills.map(skill => `<li>${skill.trim()}</li>`).join('')}
+                </ul>
+            `;
         }
-    }
+
+        // Show the download button
+        const downloadContainer = document.getElementById("download-pdf-container");
+        downloadContainer.style.display = "block";
+
+        // PDF Download functionality
+        document.getElementById("download-pdf")?.addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // If profile picture is available, add it to the PDF
+            if (profilePic) {
+                const img = new Image();
+                img.src = URL.createObjectURL(profilePic);
+                img.onload = function () {
+                    doc.addImage(img, "JPEG", 10, 10, 30, 30); // Adjust coordinates and size as needed
+                    generateResumePDF();
+                };
+            } else {
+                generateResumePDF();
+            }
+
+            function generateResumePDF() {
+                doc.setFont("helvetica", "normal");
+                doc.text(`${firstName} ${middleName} ${lastName}`, 20, 30);
+                doc.setFontSize(12);
+                doc.text(`Job Title: ${designation}`, 20, 40);
+                doc.text(`Contact: ${phone}, ${email}`, 20, 50);
+                doc.text(`Address: ${address}`, 20, 60);
+                doc.text("Summary", 20, 70);
+                doc.text(summary, 20, 80);
+                doc.text("Achievements", 20, 110);
+                doc.text(`${achievementTitle}: ${achievementDescription}`, 20, 120);
+                doc.text("Experience", 20, 140);
+                doc.text(`${jobTitle} at ${company} (${startDate} to ${endDate}) - ${jobDescription}`, 20, 150);
+                doc.text("Education", 20, 180);
+                doc.text(`${school} - ${degree} (${eduStartDate} to ${eduEndDate})`, 20, 190);
+                doc.text("Skills", 20, 220);
+                skills.forEach((skill, index) => {
+                    doc.text(`${index + 1}. ${skill.trim()}`, 20, 230 + (index * 10));
+                });
+
+                // Download the PDF
+                doc.save(`${firstName}_${lastName}_Resume.pdf`);
+            }
+        });
+    });
 });
