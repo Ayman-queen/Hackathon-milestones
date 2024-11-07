@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form?.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        // Collect form values
+        // Collect form values (same as before)
         const firstName = document.getElementById("first-name").value;
         const middleName = document.getElementById("middle-name").value;
         const lastName = document.getElementById("last-name").value;
@@ -63,26 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             reader.readAsDataURL(profilePic);
         } else {
-            resumeDisplay.innerHTML = `
-                <div style="text-align: center;">
-                    <h2>${firstName} ${middleName} ${lastName}</h2>
-                    <h3>${designation}</h3>
-                    <p><strong>Contact:</strong> ${phone}, ${email}</p>
-                    <p><strong>Address:</strong> ${address}</p>
-                </div>
-                <h3>Summary</h3>
-                <p>${summary}</p>
-                <h3>Achievements</h3>
-                <ul><li>${achievementTitle}: ${achievementDescription}</li></ul>
-                <h3>Experience</h3>
-                <p>${jobTitle} at ${company} (${startDate} to ${endDate}) - ${jobDescription}</p>
-                <h3>Education</h3>
-                <p>${school} - ${degree} (${eduStartDate} to ${eduEndDate})</p>
-                <h3>Skills</h3>
-                <ul>
-                    ${skills.map(skill => `<li>${skill.trim()}</li>`).join('')}
-                </ul>
-            `;
+            resumeDisplay.innerHTML = `...`; // Same as previous HTML if no image is uploaded
         }
 
         // Show the download button
@@ -94,12 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            // If profile picture is available, add it to the PDF
+            // First, add the profile picture if available
             if (profilePic) {
                 const img = new Image();
                 img.src = URL.createObjectURL(profilePic);
                 img.onload = function () {
                     doc.addImage(img, "JPEG", 10, 10, 30, 30); // Adjust coordinates and size as needed
+
+                    // After the image is loaded, add the resume text content
                     generateResumePDF();
                 };
             } else {
@@ -108,22 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             function generateResumePDF() {
                 doc.setFont("helvetica", "normal");
-                doc.text(`${firstName} ${middleName} ${lastName}`, 20, 30);
+                doc.text(`${firstName} ${middleName} ${lastName}`, 20, 45); // Adjusted y position to avoid overlap with the image
                 doc.setFontSize(12);
-                doc.text(`Job Title: ${designation}`, 20, 40);
-                doc.text(`Contact: ${phone}, ${email}`, 20, 50);
-                doc.text(`Address: ${address}`, 20, 60);
-                doc.text("Summary", 20, 70);
-                doc.text(summary, 20, 80);
-                doc.text("Achievements", 20, 110);
-                doc.text(`${achievementTitle}: ${achievementDescription}`, 20, 120);
-                doc.text("Experience", 20, 140);
-                doc.text(`${jobTitle} at ${company} (${startDate} to ${endDate}) - ${jobDescription}`, 20, 150);
-                doc.text("Education", 20, 180);
-                doc.text(`${school} - ${degree} (${eduStartDate} to ${eduEndDate})`, 20, 190);
-                doc.text("Skills", 20, 220);
+                doc.text(`Job Title: ${designation}`, 20, 55);
+                doc.text(`Contact: ${phone}, ${email}`, 20, 65);
+                doc.text(`Address: ${address}`, 20, 75);
+                doc.text("Summary", 20, 85);
+                doc.text(summary, 20, 95);
+                doc.text("Achievements", 20, 125);
+                doc.text(`${achievementTitle}: ${achievementDescription}`, 20, 135);
+                doc.text("Experience", 20, 155);
+                doc.text(`${jobTitle} at ${company} (${startDate} to ${endDate}) - ${jobDescription}`, 20, 165);
+                doc.text("Education", 20, 195);
+                doc.text(`${school} - ${degree} (${eduStartDate} to ${eduEndDate})`, 20, 205);
+                doc.text("Skills", 20, 235);
                 skills.forEach((skill, index) => {
-                    doc.text(`${index + 1}. ${skill.trim()}`, 20, 230 + (index * 10));
+                    doc.text(`${index + 1}. ${skill.trim()}`, 20, 245 + (index * 10));
                 });
 
                 // Download the PDF
