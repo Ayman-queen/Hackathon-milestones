@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="generate.css">
+    <link rel="stylesheet" href="<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+</head>
+<body>
+
+    <div class="container1" id="cv-form">
+        <h1 style="text-align: center; color: white; padding: 10px 0; font-size: 2rem; text-align: center; background-color: #1A91F0; margin-bottom: 40px; letter-spacing: 2px; ">Professional Resume Builder</h1>
+        <div class="box1-generate">
+          <!-- first col -->
+          <div class="col1">
+            <h3 id="heading">Personal Information</h3>
+            <form>
+              <div class="form-group">
+                <label for="nameField"> Name</label>
+                 <input
+                 required
+                type="text"
+                id="nameField"
+                class="form-control"
+                placeholder="Enter here"
+              />
+              </div>
+             <div class="form-group">
+               <label for="emailField"> Email</label>
+              <input
+              required
+                type="email"
+                id="emailField"
+                class="form-control"
+                placeholder="Enter here"
+              />
+             </div>
+             
+             
+         <div class="form-group">
+         <label for="contactField"> Phone</label>
+              <input
+              required
+                type="number"
+                id="contactField"
+                class="form-control"
+                placeholder="Enter Phone"
+              />
+          </div>
+  
+          <div class="form-group">
+            <label for="professionField">Profession</label>
+                 <input
+                 required
+                   type="text"
+                   id="professionField"
+                   class="form-control"
+                   placeholder="Enter Profession"
+                 />
+             </div>
+  
+          <div class="form-group">
+            <label for="currently_live">Currently Live</label>
+           <input
+           required
+             type="text"
+             id="currently_live"
+             class="form-control"
+             placeholder="Enter here"
+           />
+          </div>
+  
+          <div class="form-group">
+            <label for="dateField" >Date of Birth</label>
+                 <input
+                 required
+                   type="date"
+                   id="dateField"
+                   class="form-control"
+                 />
+             </div>
+  
+             <div class="form-group">
+              <label for="">Select your photo</label>
+               <input
+               
+                 rows="5"
+                 type="file"
+                 id="imageField"
+                 class="form-control"
+               />
+             </div>
+   
+             
+  
+           
+          <div class="form-group">
+             <label for="addressField">Address</label>
+              <textarea
+              required
+                rows="2"
+                type="text"
+                id="addressField"
+                class="form-control"
+                placeholder="Enter here"
+              ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="aboutField">About Yourself </label>
+             <textarea
+               rows="5"
+               required
+               type="text"
+               id="aboutField"
+               class="form-control"
+               placeholder="Enter here"
+             ></textarea>
+         </div>
+            
+            
+            
+            <h4>Important Links</h4>
+            <!-- links -->
+           
+  
+            <div class="form-group ">
+                <label for="GithubField">Github</label>
+                <input type="text" id="GithubField" class="form-control" placeholder="Enter Github URL">
+            </div>
+            
+           <div class="form-group ">
+            <label for="linkedinField">LinkedIn</label>
+            <input type="text" id="linkedinField" class="form-control" placeholder="Enter Linkedin URL">
+           </div>
+  
+                  <!-- Skills Section -->
+                  <div class="form-group ">
+                    <label for="skills">Skills</label>
+                    <textarea  rows="3" required placeholder="comma (seperated)" id="skills" class="form-control sfield "></textarea>
+                  </div>
+              </div>
+             
+            
+            <!-- second col -->
+          <div class="col2">
+          <h3 id="heading">Professional Information</h3>
+  
+          <!-- Education section -->
+         <div class="form-group" id="education"  style="margin-top: 10px;">
+          <h3 style="color: black;">Education</h3>
+  
+        
+          <label>Degree:</label>
+          <input  type="text"required id="degree" placeholder="enter degree" >
+          <label >Institution:</label>
+          <input  type="text" required id="institution" placeholder="Institution" >
+          <label>Start Year:</label>
+          <input  type="number" required id="graduation-date-start">
+          <label>End Year:</label>
+          <input  type="number" required id="graduation-date-end" >
+  
+  
+        </div>
+  
+            
+            <!-- Work Experience Section -->
+        <div class="form-group" id="work-experience" style="margin-top: 30px;">
+
+            
+          <h3 style="color: black;">Work Experience</h3>
+          <div class="experience-entry">
+          <label>Job Title:</label>
+          <input type="text" required id="job-title" placeholder="Job Title" >
+          <label>Company:</label>
+          <input  type="text" required id="company" placeholder="Company" >
+          <label>Description:</label>
+          <input  type="text required" id="job-description" placeholder="Job description" ></input>
+          <label>Start Year:</label>
+          <input  type="number" required id="start-date" >
+          <label>End Year:</label>
+          <input  type="number" required id="end-date" >   
+        </div>    
+    </div>
+
+       </div>
+
+          
+        </div>
+  
+        <div class="button">
+          <button>Generate CV</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="wrapper" id="cv-template">
+        <div class="container" >
+          <!-- content -->
+          <div class="box1">
+            <div id="hide-img2">
+              <img
+                src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726790400&semt=ais_hybrid "
+                alt="profile pic"
+                width="100%"
+                style="object-fit: cover"
+                id="imgTemplate-hide"
+                
+              />
+            </div>
+            <h1 id="nameT" style="letter-spacing: 3px; margin-bottom: 20px; text-align: center; margin-top: 20px; color: rgb(254, 247, 247);">Moiz Ahmed</h1>
+            <h4 id="professionT">
+              Web Developer
+            </h4>
+            
+            <div class="info" style="flex-wrap: wrap;">
+              <h5 class="head" style="margin-top: 30px; margin-bottom: 10px; color: rgb(255, 255, 255); ">PERSONAL INFORMATION</h5>
+    
+              <div style="display: inline-flex;  align-items: center;">
+                <h5 ><pre>DOB :  </pre></h5> 
+                <p id="DOBT">6 / 05 /2004 </p>
+              </div>
+           <br>
+              <div style="display: inline-flex; align-items: center;">
+                <h5 ><pre>Currently Live : </pre></h5>
+                <p id="currentlyT">Karachi</p>
+              </div>
+              
+              <div style="display: inline-flex; align-items: center;">
+                <h5><pre>Address : </pre> </h5>
+                <p  id="addressT">Turk Market Baldia Town 3 Karachi</p>
+              </div>
+    
+              <h3 class="head" style="margin-top: 40px; margin-bottom: 20px">
+                Contact Me
+              </h3>
+    
+              <div style="margin-bottom: 10px; display: inline-flex; align-items: center;">
+                <h5><pre>Phone : </pre></h5>
+                <p id="contactT">+923132645183</p>
+              </div>
+    
+              <div style="display: inline-flex; align-items: center;">
+                <h5><pre>Email : </pre></h5>
+                <p>
+                  <a id="emailT"
+                    style=" text-decoration: none; color: #AAACAF;"
+                    href="mailto:moizaman3623@gmail.com"
+                    >moizaman905@gmail.com</a
+                  >
+                </p>
+              </div>
+    
+              <!-- Links -->
+              <div class="icons" style="margin-top: 50px; overflow: hidden; margin-bottom: 20px; " >
+                <div >
+                  <p style="font-size: 15px;"> <span >LinkedIn :</span> <a style=" color: #8b8484;" id="LinkedInT" href="#1" target="_blank"></a></p>
+                </div>
+    
+                <div >
+                  <p style="font-size: 15px;"> <span >Github :</span> <a style=" color: #898686;" id="githubT" href="#1" target="_blank"></a></p>
+                </div>
+              </div>
+              
+            </div>
+            <div class="about" style="margin-top: 40px;">
+              <h2 class="head"  style="margin-bottom: 10px; letter-spacing: 2px; ">About me</h2>
+              <p id="aboutT" class="para">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit quia doloremque tempore ut culpa sed sequi impedit veniam deserunt a!
+    
+              </p>
+            </div>
+    
+    
+            
+            <!-- Skills -->
+            <div class="skills-contain" >
+              <div class="" style="margin-top: 20px; margin-bottom: 20px;">
+                  <h3 style="letter-spacing: 5px; ">Skills</h3>
+              </div>
+    
+              <div class="skills">
+                  <ul id="skillT" style="font-size: 1.2rem; font-weight: 600;" >
+                      <li>Html</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                      <li>TypeScript</li>
+                      <li>Tailwind CSS</li>
+                      <li>React.Js</li>
+                  </ul>
+              </div>
+            </div>
+    
+          </div>
+    
+          <!-- image part -->
+          <div class="box2">
+            <div id="hide-img">
+              <img src="https://img.freepik.com/premium-vector/stylish-default-user-profile-photo-avatar-vector-illustration_664995-352.jpg" alt="profile pic" id="imgTemplate" />
+            </div>
+    
+            <!-- Education -->
+            <div class="education">
+              <h3 style="letter-spacing: 5px;">EDUCATION</h3>
+              <!-- School -->
+              <div class="education_main">
+                <div class="edu-info">
+                  <p id="round"></p>
+                  <h4 id="display-degree">DAE</h4>
+                  <span style="display: flex; font-weight: 700; color: white;" ><p id="display-graduation-start">2021</p><pre>  to  </pre> <p id="display-graduation-end">2024</p></span>
+                  <p style="margin-top: 20px; font-size: 1.1rem;font-weight: 700; color:white;">Institute<p id="display-institution" style="color: gray; font-size: 15px;">Pnpi/COLLEGE</p></p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Work Experience -->
+    
+            <div class="experience">
+              <h3 style="letter-spacing: 5px;">
+                WORK EXPERIENCE
+              </h3>
+              <div class="experience_main">
+                <div id="exp-1">
+                  <p id="round2"></p>
+                  <h4 id="display-job-title" >FRONTENED DEVELOPER</h4>
+                  <span style="display: flex;color: white;"> <p id="display-company">Amazon </p> - Company</span>
+                  <span style="display: flex; font-weight: 700; color: white;">
+                    <p id="display-start-date" >2022</p><pre>  to  </pre> <p id="display-end-date">2024</p>
+                  </span>
+                  <p id="display-discription" style="color: white; font-size: 15px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, ad!</p>
+                </div>     
+              </div>
+            </div>
+    
+    
+        </div>
+      </div>
+      
+      <div class="cv-btn" >
+        <button id="print">Print CV</button>
+        <button id="edit" >Edit Resume</button>
+        <button id="share-btn">Shareable Link</button>
+      </div>
+
+      
+    </div>
+
+    
+    <script src="./generate.js"></script>
+</body>
+                </html>
