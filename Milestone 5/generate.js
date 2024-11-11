@@ -1,10 +1,13 @@
 "use strict";
 // Object.defineProperty(exports, "__esModule", { value: true });
 // require("print-this");
+
 let sharebtn = document.getElementById("share-btn");
 let cvform = document.querySelector("#cv-form");
 let editbtn = document.getElementById("edit");
 let cvTemplate = document.getElementById("cv-template");
+let downloadBtn = document.getElementById("download-btn"); // Reference to the download button
+
 cvform?.addEventListener("submit", (e) => {
     e.preventDefault();
     let name = document.getElementById("nameField").value;
@@ -28,6 +31,7 @@ cvform?.addEventListener("submit", (e) => {
     // links
     let Github = document.getElementById("GithubField").value;
     let linkedin = document.getElementById("linkedinField").value;
+
     document.getElementById("currentlyT").textContent = currently_live;
     document.getElementById("DOBT").textContent = DOB;
     document.getElementById("nameT").textContent = name;
@@ -48,6 +52,7 @@ cvform?.addEventListener("submit", (e) => {
     document.getElementById("display-end-date").textContent = endDate;
     document.getElementById("display-discription").textContent = jobDescription;
     document.getElementById("professionT").textContent = profession;
+
     // ******* Skills *********
     let skills = document.getElementsByClassName("sfield");
     let skillsStr = "";
@@ -58,6 +63,7 @@ cvform?.addEventListener("submit", (e) => {
         }
     }
     document.getElementById("skillT").innerHTML = skillsStr;
+
     // **** Setting Image ****
     let fileInput = document.getElementById("imageField").files?.[0];
     if (fileInput) {
@@ -72,26 +78,42 @@ cvform?.addEventListener("submit", (e) => {
         reader.onloadend = () => document.getElementById("imgTemplate-hide").src = reader.result;
         reader.readAsDataURL(fileInput2);
     }
+
     document.getElementById("cv-form").style.display = "none";
     document.getElementById("cv-template").style.display = "block";
-    let names = document.getElementById("nameField");
+
     // shareable link
     sharebtn.addEventListener("click", async () => {
         try {
             const shareableLink = `https://milestone5-unique-path-and-shareable-link.vercel.app/?username.value/${names.value.replace(/\s+/g, '_')}`;
             await navigator.clipboard.writeText(shareableLink);
-            alert("Shareable linkcopied to Clipboard!");
-            //   https://milestone5-unique-path-and-shareable-link.vercel.app/
+            alert("Shareable link copied to Clipboard!");
         }
         catch (err) {
-            alert("Failed to copy link clipboard . please try again!");
+            alert("Failed to copy link clipboard. Please try again!");
         }
     });
 });
+
+// Download as PDF functionality
+downloadBtn?.addEventListener("click", () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Capture content of the CV Template
+    const cvContent = document.getElementById("cv-template");
+    doc.html(cvContent, {
+        callback: function (doc) {
+            doc.save(`${document.getElementById("nameField").value}_CV.pdf`);
+        }
+    });
+});
+
 editbtn?.addEventListener("click", () => {
     cvform.style.display = "block";
     cvTemplate.style.display = "none";
 });
+
 $(document).ready(function () {
     $("#print").on("click", function () {
         $(".container").printThis();
