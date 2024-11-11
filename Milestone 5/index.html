@@ -1,112 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Resume Builder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link your custom CSS here -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  </head>
+  <body>
     <header>
-        <h1>Resume Builder</h1>
-        <p>Create and download your professional resume easily!</p>
+      <nav>
+        <div class="logo">
+          <img
+            src="./logo.png"
+            alt="logo"
+          />
+        </div>
+        <ul>
+          <a href="">Resume</a>
+          <a href="">Cover Letter</a>
+          <a href="">Blog</a>
+          <a href="">FAQ</a>
+        </ul>
+        <a class="btn" href="./generate.html">Build my resume</a>
+        <div class="icon">
+        <i class="fa-solid fa-bars"></i>
+        </div>
+      </nav>
     </header>
 
-    <main>
-        <form id="resume-form">
-            <fieldset>
-                <legend>Personal Information</legend>
-                <label for="profile-pic">Profile Picture:</label>
-                <input type="file" id="profile-pic" accept="image/*">
-                <img id="profile-pic-preview" style="display:none;" width="100" height="100" alt="Profile Picture Preview">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" required>
-                <label for="middle-name">Middle Name (Optional):</label>
-                <input type="text" id="middle-name">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" required>
-                <label for="designation">Job Title:</label>
-                <input type="text" id="designation" required>
-                <label for="address">Address:</label>
-                <input type="text" id="address">
-                <label for="email">Email:</label>
-                <input type="email" id="email">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone">
-                <label for="summary">Summary:</label>
-                <textarea id="summary"></textarea>
-            </fieldset>
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1>The professional resume builder</h1>
+          <p>
+            Only 2% of resumes win. Yours will be one of them. Let’s build you a
+            resume that works.
+          </p>
+          <div class="hero-btn">
+           <a href="./resume.html">View Resume</a> 
+           <a href="./generate.html">Create resume</a> 
+          </div>
+          
+        </div>
+        <div class="preview">
+          <img src="./preview.jpg" alt="" />
+        </div>
+      </div>
+    </section>
 
-            <fieldset>
-                <legend>Achievements</legend>
-                <label for="achievement-title">Achievement Title:</label>
-                <input type="text" id="achievement-title">
-                <label for="achievement-description">Achievement Description:</label>
-                <textarea id="achievement-description"></textarea>
-            </fieldset>
 
-            <fieldset>
-                <legend>Experience</legend>
-                <label for="job-title">Job Title:</label>
-                <input type="text" id="job-title">
-                <label for="company">Company:</label>
-                <input type="text" id="company">
-                <label for="location">Location:</label>
-                <input type="text" id="location">
-                <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date">
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date">
-                <label for="job-description">Job Description:</label>
-                <textarea id="job-description"></textarea>
-            </fieldset>
+    <section class="main">
+      <h2>The Professional Resume Maker and CV Builder</h2>
+      <h5>VisualCV is everything you need to create an online resume and make your next <br> career move.</h5>
 
-            <fieldset>
-                <legend>Education</legend>
-                <label for="school">School:</label>
-                <input type="text" id="school">
-                <label for="degree">Degree:</label>
-                <input type="text" id="degree">
-                <label for="edu-location">Location:</label>
-                <input type="text" id="edu-location">
-                <label for="edu-start-date">Start Date:</label>
-                <input type="date" id="edu-start-date">
-                <label for="edu-end-date">End Date:</label>
-                <input type="date" id="edu-end-date">
-                <label for="edu-description">Education Description:</label>
-                <textarea id="edu-description"></textarea>
-            </fieldset>
+      <div class="main-container">
 
-            <fieldset>
-                <legend>Skills</legend>
-                <label for="skills">Skills (comma-separated):</label>
-                <textarea id="skills"></textarea>
-            </fieldset>
-
-            <button type="submit">Generate Resume</button>
-        </form>
-
-        <div class="resume-preview" id="resume-display"></div>
-
-        <div class="download-button-container" id="download-pdf-container" style="display:none;">
-            <button id="download-pdf">Download Resume as PDF</button>
+        <div class="box">
+          <img src="https://www.visualcv.com/static/b87f406d88de4a8775113011454be499/4f25f/much-more-2x.webp" alt="">
+          <h3>CV Maker</h3>
+          <p>With our online resume maker - you can select a template, import an existing resume or craft a new one from scratch within minutes.</p>
         </div>
 
-    </main>
+        <div class="box">
+          <img src="https://www.visualcv.com/static/c57e6ee61fa473dace346214ba5d4e19/bfa43/share-2x.webp" alt="">
+          <h3>Share and Download</h3>
+          <p>Share your CV with a convenient link via email or social media, and export as a PDF to apply directly to an employer.</p>
+        </div>
+
+
+        <div class="box">
+          <img src="https://www.visualcv.com/static/569438797201b4b3389f500b162f9f86/90a55/manage-2x.webp" alt="">
+          <h3>Manage Multiple CVs</h3>
+          <p>In today's competitive market, customization is key. Easily manage multiple VisualCV versions, personalized for each application.</p>
+        </div>
+
+        <div class="box">
+          <img src="https://www.visualcv.com/static/bd1fce78de7cdc58e31ca7800bcca67b/6705b/track-2x.webp" alt="">
+          <h3>Track Your Results</h3>
+          <p>CV analytics will let you know when an employer views or downloads your CV, helping you avoid getting lost in the hiring process.</p>
+        </div>
+
+        <div class="box">
+          <img src="https://www.visualcv.com/static/eaa1fd66ecba4ce7d9a33d0570692655/bfa43/feedback-2x.webp" alt="">
+          <h3>Get Feedback</h3>
+          <p>Get a free CV review from our partners, or send to your friends for feedback.</p>
+        </div>
+
+        <div class="box">
+          <img src="https://www.visualcv.com/static/c0cfaf1d89e1186cb4feaa1092d7bb78/de3aa/data-privacy-2x.webp" alt="">
+          <h3>Data and Privacy Control</h3>
+          <p>We don’t share your information with anyone (unless you explicitly ask us to), and have 3 CV privacy options to ensure your data stays safe.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+
+  <section class="main-2"> 
+    <h2>Create Resume Online in just few Easy Steps</h2>
+    <div class="images">
+      <img src="https://www.visualcv.com/static/6e0ff6c3c60c4c45a55b84b5e1ccafe6/6705b/track-icon.webp" alt="">
+      <img src="https://www.visualcv.com/static/b0e5af8272457534258d566aff3347a5/21f16/create-design-icon.webp" alt="">
+      <img src="https://www.visualcv.com/static/f793cc26df764255e6f61e20e0f39796/732ca/customize-icon.webp" alt="">
+    </div>
+  </section>
+
+
+
+
 
     <footer>
-        <p>Created by Ayman Shaheen | Proudly Crafted with Care</p>
-    </footer>
-<script src="script.js"></script>
-      
-</body>
-</html>
-      </div>
+      <div class="footer-container">
+        <div class="box">
+          <h3>JOB SEEKERS</h3>
+          <p>Create a resume</p>
+          <p>Resume examples</p>
+          <p>Resume templates</p>
+          <p>Cover Letter Templates</p>
+          <p>Job Search</p>
+        </div>
 
-    <script src="script.js"></script> 
-</body>
+        <div class="box">
+          <h3>CAREER RESOURCES</h3>
+          <p>Resume help</p>
+          <p>Job Interview</p>
+          <p>Career</p>
+          <p>Cover Letter</p>
+          <p>Blog</p>
+        </div>
+
+
+        <div class="box">
+          <h3>OUR COMPANY</h3>
+          <p>About Us</p>
+          <p>Pricing</p>
+          <p>Sponsorship Program</p>
+          <p>Media Kit</p>
+          <p>Affiliates</p>
+        </div>
+
+
+        <div class="box">
+          <h3>SUPPORT</h3>
+          <p>FAQ</p>
+          <p>Contact Us</p>
+          <p>Term of Service</p>
+          <p>Privacy</p>
+          <p>Right of Withdrawal</p>
+        </div>
+      </div>
+      <div class="socials">
+        <a href="https://pk.linkedin.com/in/ayman-shaheen-3071722b9/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+ 
+    </div>
+      <div class="copyright">&copy;All Rights Reserved by Ayman Shaheen </div>
+    </footer>
+
+    <a href="./resume.html"></a>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
