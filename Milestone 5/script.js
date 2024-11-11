@@ -69,3 +69,11 @@ $(document).ready(function () {
         $("#resume-output").printThis();
     });
 });
+// Show the download button
+        const downloadContainer = document.getElementById("download-pdf-container");
+        downloadContainer.style.display = "block";
+
+        // PDF Download functionality
+        document.getElementById("download-pdf")?.addEventListener("click", () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
